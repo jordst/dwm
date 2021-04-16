@@ -1,5 +1,6 @@
 # Fork of dwm
 What's included:
+* Pertag (keeps layout, mwfact, barpos and nmaster per tag)
 * alwayscenter
 * noborder
 * attach aside

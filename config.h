@@ -49,7 +49,7 @@ static const Rule rules[] = {
 {   "qBittorrent",           NULL,  NULL,  1   <<  5,  0,  -1  },
 {   "Nm-connection-editor",  NULL,  NULL,  1   <<  5,  0,  -1  },
 {   "MusicPlayer",           NULL,  NULL,  1   <<  6,  0,  -1  },
-{   "TelegramDesktop",       NULL,  NULL,  1   <<  1,  0,  -1  },
+{   "TelegramDesktop",       NULL,  NULL,  1   <<  2,  0,  -1  },
 {   "obs",                   NULL,  NULL,  1   <<  5,  0,  -1  },
 {   "kitty",                 NULL,  NULL,  1,  0,  -1  },      
 {   "st",                    NULL,  NULL,  1,  0,  -1  },      
