@@ -5,6 +5,7 @@ What's included:
 * noborder
 * attach aside
 * restartsig (alt+ctrl+shift+q)
+* Systray (tray doesnt resize, needs fix)
 * Some rules for applications
 
 # dwm - dynamic window manager
