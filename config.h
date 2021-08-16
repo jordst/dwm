@@ -12,21 +12,19 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Fantasque Sans Mono:size=12" };
 static const char dmenufont[]       = "Fantasque Sans Mono:size=12";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#196684";
-static const char *colors[][3]      = {
+static  const  char  col_gray1[]   =  "#222222";
+static  const  char  col_gray2[]   =  "#444444";
+static  const  char  col_gray3[]   =  "#bbbbbb";
+static  const  char  col_gray4[]   =  "#eeeeee";
+static  const  char  col_cyan[]    =  "#196684";
+static  const  char  *colors[][3]  =  {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
-//static const char *tags[] = {"一", "二", "三", "四", "五", "六", "七", "八", "九", "十"};
-//static const char *tags[] = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
+static const char *tags[] = { "term", "www", "files", "soc", "mail", "misc" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -34,23 +32,23 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 /*  class                    instance  title  tags  mask  isfloating  monitor  */
-{   "Gimp",                  NULL,  NULL,  1   <<  7,  0,  -1  },
-{   "Steam",                 NULL,  NULL,  1   <<  7,  0,  -1  },
-{   "Pcmanfm",               NULL,  NULL,  1   <<  1,  0,  -1  },
-{   "Zathura",               NULL,  NULL,  1   <<  1,  0,  -1  },
-{   "Shotwell",              NULL,  NULL,  1   <<  7,  0,  -1  },
-{   "discord",               NULL,  NULL,  1   <<  2,  0,  -1  },
-{   "Firefox",               NULL,  NULL,  1   <<  8,  0,  -1  },
-{   "Chromium",              NULL,  NULL,  1   <<  8,  0,  -1  },
-{   "Pavucontrol",           NULL,  NULL,  1   <<  4,  0,  -1  },
-{   "Pulseeffects",          NULL,  NULL,  1   <<  4,  0,  -1  },
-{   "Thunderbird",           NULL,  NULL,  1   <<  3,  0,  -1  },
-{   "MEGAsync",              NULL,  NULL,  1   <<  3,  0,  -1  },
+{   "Gimp",                  NULL,  NULL,  1   <<  5,  0,  -1  },
+{   "Steam",                 NULL,  NULL,  1   <<  5,  0,  -1  },
+{   "Pcmanfm",               NULL,  NULL,  1   <<  2,  0,  -1  },
+{   "Zathura",               NULL,  NULL,  1   <<  2,  0,  -1  },
+{   "Shotwell",              NULL,  NULL,  1   <<  5,  0,  -1  },
+{   "discord",               NULL,  NULL,  1   <<  3,  0,  -1  },
+{   "Firefox",               NULL,  NULL,  1   <<  1,  0,  -1  },
+{   "Chromium",              NULL,  NULL,  1   <<  1,  0,  -1  },
+{   "Pavucontrol",           NULL,  NULL,  1   <<  5,  0,  -1  },
+{   "Pulseeffects",          NULL,  NULL,  1   <<  5,  0,  -1  },
+{   "Thunderbird",           NULL,  NULL,  1   <<  4,  0,  -1  },
+{   "MEGAsync",              NULL,  NULL,  1   <<  5,  0,  -1  },
 {   "Deluge-gtk",            NULL,  NULL,  1   <<  5,  0,  -1  },
 {   "qBittorrent",           NULL,  NULL,  1   <<  5,  0,  -1  },
 {   "Nm-connection-editor",  NULL,  NULL,  1   <<  5,  0,  -1  },
-{   "MusicPlayer",           NULL,  NULL,  1   <<  6,  0,  -1  },
-{   "TelegramDesktop",       NULL,  NULL,  1   <<  2,  0,  -1  },
+{   "MusicPlayer",           NULL,  NULL,  1   <<  5,  0,  -1  },
+{   "TelegramDesktop",       NULL,  NULL,  1   <<  3,  0,  -1  },
 {   "obs",                   NULL,  NULL,  1   <<  5,  0,  -1  },
 {   "kitty",                 NULL,  NULL,  1,  0,  -1  },      
 {   "st",                    NULL,  NULL,  1,  0,  -1  },      
@@ -96,14 +94,12 @@ static Key keys[] = {
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
@@ -115,9 +111,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
 	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
 };
